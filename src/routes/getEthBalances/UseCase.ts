@@ -1,5 +1,6 @@
-import IUseCase from '#types/IUseCase';
 import { type Provider, isAddress, formatEther } from 'ethers';
+import type IUseCase from '#types/IUseCase';
+import { formatNumber } from '#utils';
 
 export interface IDto {
   addresses: string[];
@@ -17,7 +18,12 @@ export class UseCase implements IUseCase<IDto, Response> {
       }
       const weiBalance = await this._ethersProvider.getBalance(address);
       const etherBalance = formatEther(weiBalance);
-      return etherBalance;
+      const formattedBalance = formatNumber({
+        number: etherBalance,
+        minSignificantFigures: 4,
+        minDecimalPlaces: 2,
+      });
+      return formattedBalance;
     });
 
     const balances = await Promise.all(balancePromises);

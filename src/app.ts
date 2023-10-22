@@ -12,6 +12,7 @@ import type { Provider } from 'ethers';
 import ethersProvider from '#plugins/ethersProvider';
 import getEnvVars from '#plugins/getEnvVars';
 import getEthBalances from '#routes/getEthBalances/controller';
+import Decimal from 'decimal.js';
 
 const environments = {
   ethereumNetwork: 'ETHEREUM_NETWORK',
@@ -33,6 +34,8 @@ declare module 'fastify' {
     environments: Readonly<Record<keyof typeof environments, string>>;
   }
 }
+
+Decimal.set({ toExpNeg: -20, toExpPos: 20 });
 
 const app = fastify({
   logger: true,

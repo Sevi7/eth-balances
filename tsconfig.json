@@ -29,5 +29,5 @@
       "#*": ["src/*"]
     }
   },
-  "include": ["./src", "./package.json", "./package-lock.json"]
+  "include": ["./src", "./tests", "./package.json", "./package-lock.json"]
 }
