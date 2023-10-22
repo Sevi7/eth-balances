@@ -37,21 +37,26 @@ declare module 'fastify' {
 
 Decimal.set({ toExpNeg: -20, toExpPos: 20 });
 
-const app = fastify({
-  logger: true,
-}).withTypeProvider<JsonSchemaToTsProvider>();
+export const buildApp = () => {
+  const app = fastify({
+    logger: true,
+  }).withTypeProvider<JsonSchemaToTsProvider>();
 
-// plugins
-app.register(helmet);
-app.register(fastifyResponseValidation);
-app.register(getEnvVars(environments));
-app.register(ethersProvider);
+  // plugins
+  app.register(helmet);
+  app.register(fastifyResponseValidation);
+  app.register(getEnvVars(environments));
+  app.register(ethersProvider);
 
-// routes
-app.get('/health', async (_, reply) => reply.code(200).send({ status: 'ok' }));
-app.register(getEthBalances);
+  // routes
+  app.get('/health', async (_, reply) => reply.code(200).send({ status: 'ok' }));
+  app.register(getEthBalances);
+
+  return app;
+};
 
 const start = async () => {
+  const app = buildApp();
   try {
     await app.listen({ port: 3000 });
   } catch (err) {

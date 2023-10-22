@@ -10,4 +10,5 @@ export default {
     '^.+\\.ts?$': 'ts-jest',
   },
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/../' }),
+  setupFiles: ['./setEnvVars.ts'],
 };
