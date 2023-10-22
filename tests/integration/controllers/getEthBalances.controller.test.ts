@@ -1,6 +1,6 @@
 import fp from 'fastify-plugin';
 import type { fastify } from 'fastify';
-import { buildApp, type CustomFastifyInstance } from '#app';
+import { buildApp, type CustomFastifyInstance } from '../../../src/app';
 import { Provider } from 'ethers';
 
 const getBalanceMock = jest.fn();
@@ -9,7 +9,7 @@ const ethersProviderMock = {
   getBalance: getBalanceMock,
 } as unknown as Provider;
 
-jest.mock('#plugins/ethersProvider', () =>
+jest.mock('../../../src/plugins/ethersProvider', () =>
   fp(async (app: CustomFastifyInstance) => {
     app.decorate('ethersProvider', ethersProviderMock);
   }),

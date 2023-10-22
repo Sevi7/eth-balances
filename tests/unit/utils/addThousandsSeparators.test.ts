@@ -1,4 +1,4 @@
-import { addThousandsSeparator } from '#utils';
+import { addThousandsSeparator } from '../../../src/utils';
 
 describe('addThousandsSeparator', () => {
   it('should add a comma as separator in whole number', () => {

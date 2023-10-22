@@ -1,4 +1,4 @@
-import { formatNumber } from '#utils';
+import { formatNumber } from '../../../src/utils';
 import Decimal from 'decimal.js';
 
 Decimal.set({ toExpNeg: -20, toExpPos: 20 });

@@ -1,4 +1,4 @@
-import { UseCase } from '#routes/getEthBalances/UseCase';
+import { UseCase } from '../../../src/routes/getEthBalances/UseCase';
 import { Provider } from 'ethers';
 
 const getBalanceMock = jest.fn();

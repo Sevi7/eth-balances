@@ -1,6 +1,6 @@
-import type { CustomFastifyInstance } from '#app';
-import Errors from '#errors';
-import HttpStatusCode from '#enums/HttpStatusCode';
+import type { CustomFastifyInstance } from '../../app';
+import Errors from '../../errors';
+import HttpStatusCode from '../../enums/HttpStatusCode';
 import schema from './schema';
 import { UseCase, type IDto } from './UseCase';
 

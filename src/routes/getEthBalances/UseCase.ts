@@ -1,6 +1,6 @@
 import { type Provider, isAddress, formatEther } from 'ethers';
-import type IUseCase from '#types/IUseCase';
-import { formatNumber } from '#utils';
+import type IUseCase from '../../types/IUseCase';
+import { formatNumber } from '../../utils';
 
 export interface IDto {
   addresses: string[];

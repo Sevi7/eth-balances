@@ -1,6 +1,6 @@
 import fp from 'fastify-plugin';
 import { get as getEnvVar } from 'env-var';
-import type { CustomFastifyInstance } from '#app';
+import type { CustomFastifyInstance } from '../app';
 
 const getEnvVars = (environments: Record<string, string>) =>
   fp(async (app: CustomFastifyInstance) => {

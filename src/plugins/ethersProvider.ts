@@ -1,6 +1,6 @@
 import fp from 'fastify-plugin';
 import { AlchemyProvider } from 'ethers';
-import type { CustomFastifyInstance } from '#app';
+import type { CustomFastifyInstance } from '../app';
 
 const ethersProvider = fp(async (app: CustomFastifyInstance) => {
   const provider = new AlchemyProvider(

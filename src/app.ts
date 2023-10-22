@@ -9,9 +9,9 @@ import helmet from '@fastify/helmet';
 import fastifyResponseValidation from '@fastify/response-validation';
 import type { JsonSchemaToTsProvider } from '@fastify/type-provider-json-schema-to-ts';
 import type { Provider } from 'ethers';
-import ethersProvider from '#plugins/ethersProvider';
-import getEnvVars from '#plugins/getEnvVars';
-import getEthBalances from '#routes/getEthBalances/controller';
+import ethersProvider from './plugins/ethersProvider';
+import getEnvVars from './plugins/getEnvVars';
+import getEthBalances from './routes/getEthBalances/controller';
 import Decimal from 'decimal.js';
 
 const environments = {
@@ -58,7 +58,7 @@ export const buildApp = () => {
 const start = async () => {
   const app = buildApp();
   try {
-    await app.listen({ port: 3000 });
+    await app.listen({ port: 3000, host: '::' });
   } catch (err) {
     app.log.error(err);
     process.exit(1);

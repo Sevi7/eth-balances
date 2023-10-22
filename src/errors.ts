@@ -1,4 +1,4 @@
-import HttpStatusCode from '#enums/HttpStatusCode';
+import HttpStatusCode from './enums/HttpStatusCode';
 
 const Errors = {
   InternalServerError: {
